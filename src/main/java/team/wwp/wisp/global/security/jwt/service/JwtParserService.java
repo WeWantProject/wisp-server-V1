@@ -52,12 +52,12 @@ public class JwtParserService implements JwtParserUseCase {
     }
 
     @Override
-    public String getEmailFromAccessToken(String accessToken) {
+    public String getPhoneNumberFromAccessToken(String accessToken) {
         return parseAccessTokenClaims(accessToken).getSubject();
     }
 
     @Override
-    public String getEmailFromRefreshToken(String refreshToken) {
+    public String getPhoneNumberFromRefreshToken(String refreshToken) {
         return parseRefreshTokenClaims(refreshToken).getSubject();
     }
 

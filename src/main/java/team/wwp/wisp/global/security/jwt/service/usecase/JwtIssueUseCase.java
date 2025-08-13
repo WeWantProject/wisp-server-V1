@@ -4,7 +4,7 @@ import team.wwp.wisp.domain.user.domain.constant.UserRole;
 import team.wwp.wisp.global.security.jwt.data.TokenDto;
 
 public interface JwtIssueUseCase {
-    TokenDto issueAccessToken(String email, UserRole role);
+    TokenDto issueAccessToken(String phoneNumber, UserRole role);
 
-    TokenDto issueRefreshToken(String email);
+    TokenDto issueRefreshToken(String phoneNumber);
 }

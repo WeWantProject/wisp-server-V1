@@ -8,9 +8,9 @@ public interface JwtParserUseCase {
 
     Boolean validateRefreshToken(String refreshToken);
 
-    String getEmailFromAccessToken(String accessToken);
+    String getPhoneNumberFromAccessToken(String accessToken);
 
-    String getEmailFromRefreshToken(String refreshToken);
+    String getPhoneNumberFromRefreshToken(String refreshToken);
 
     UserRole getRoleFromAccessToken(String accessToken);
 

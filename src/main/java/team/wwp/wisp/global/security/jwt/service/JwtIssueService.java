@@ -35,11 +35,11 @@ public class JwtIssueService implements JwtIssueUseCase {
     }
 
     @Override
-    public TokenDto issueAccessToken(String email, UserRole role) {
+    public TokenDto issueAccessToken(String phoneNumber, UserRole role) {
         LocalDateTime expiration = LocalDateTime.now().plusSeconds(jwtEnvironment.accessToken().expiration());
         return new TokenDto(
             Jwts.builder()
-                .claim("sub", email)
+                .claim("sub", phoneNumber)
                 .claim("role", role)
                 .claim("iat", LocalDateTime.now().atZone(ZoneId.of("Asia/Seoul")).toEpochSecond())
                 .claim("exp", expiration.atZone(ZoneId.of("Asia/Seoul")).toEpochSecond())
@@ -50,11 +50,11 @@ public class JwtIssueService implements JwtIssueUseCase {
     }
 
     @Override
-    public TokenDto issueRefreshToken(String email) {
+    public TokenDto issueRefreshToken(String phoneNumber) {
         LocalDateTime expiration = LocalDateTime.now().plusSeconds(jwtEnvironment.refreshToken().expiration());
         TokenDto token = new TokenDto(
             Jwts.builder()
-                .claim("sub", email)
+                .claim("sub", phoneNumber)
                 .claim("iat", LocalDateTime.now().atZone(ZoneId.of("Asia/Seoul")).toEpochSecond())
                 .claim("exp", expiration.atZone(ZoneId.of("Asia/Seoul")).toEpochSecond())
                 .signWith(refreshTokenKey)
@@ -64,7 +64,7 @@ public class JwtIssueService implements JwtIssueUseCase {
 
         refreshTokenRedisRepository.save(RefreshTokenRedisEntity.builder()
             .token(token.token())
-            .email(email)
+            .phoneNumber(phoneNumber)
             .expiration((long)expiration.getSecond())
             .build()
         );
