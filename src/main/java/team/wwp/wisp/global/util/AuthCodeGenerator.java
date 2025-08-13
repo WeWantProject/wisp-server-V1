@@ -8,7 +8,7 @@ import lombok.experimental.UtilityClass;
 public class AuthCodeGenerator {
     
     public String generateAuthCode() {
-        return String.valueOf(10000000 + new SecureRandom().nextInt(90000000));
+        return String.valueOf(100000 + new SecureRandom().nextInt(90000000));
     }
 
 }

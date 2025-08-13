@@ -32,7 +32,7 @@ public class SmsUtil {
         Message message = new Message();
         message.setFrom(smsEnvironment.sender());
         message.setTo(to);
-        message.setText("인증번호는 " + authCode + "입니다.");
+        message.setText("[WISP] 인증번호는 " + authCode + "입니다.");
 
         this.messageService.sendOne(new SingleMessageSendingRequest(message));
     }
