@@ -12,7 +12,7 @@ import io.jsonwebtoken.lang.Arrays;
 @Configuration
 public class CorsConfig {
     
-    @Value("${spring.security.cors.allowed-origin}")
+    @Value("${spring.security.cors.allowed-origins}")
     private String allowedUrl;
 
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
