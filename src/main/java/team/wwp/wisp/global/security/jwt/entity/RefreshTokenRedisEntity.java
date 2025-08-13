@@ -6,13 +6,13 @@ import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.TimeToLive;
 import org.springframework.data.redis.core.index.Indexed;
 
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@RedisHash("refresh-token")
+@RedisHash(value = "refresh-token")
 @Getter
 @NoArgsConstructor
 @Builder
@@ -23,7 +23,7 @@ public class RefreshTokenRedisEntity {
     private String token;
 
     @Indexed
-    private String email;
+    private String phoneNumber;
 
     @TimeToLive(unit = TimeUnit.SECONDS)
     private Long expiration;
