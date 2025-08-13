@@ -1,0 +1,36 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${RDB_HOST:localhost}:${RDB_PORT:3306}/${RDB_SCHEMA:wisp_db}
+    username: ${RDB_USERNAME:root}
+    password: ${RDB_PASSWORD:123456}
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+  security:
+    cors:
+      allowed-origins: ${ALLOWED_ORIGINS:http://localhost:3000,http://localhost:3001}
+
+jwt:
+  access-token:
+    secret: ${JWT_ACCESS_TOKEN_SECRET:ef20dc1ba114dd1c3ee9d035785a551c8e99da05f642f67f2a0ea8643fe6996c}
+    expiration: ${JWT_ACCESS_TOKEN_EXPIRATION:86400}
+  refresh-token:
+    secret: ${JWT_REFRESH_TOKEN_SECRET:b093c643373ccf233b834c70a6eab2c1d48140785f0bb267eb8e3fca24fa2de9}
+    expiration: ${JWT_REFRESH_TOKEN_EXPIRATION:604800}
+
+coolsms:
+  key: ${COOLSMS_API_KEY:NCSUKVBHPYJWMYZE}
+  secret: ${COOLSMS_API_SECRET:87T9UCIIHRWOVGHN48RGCWCSFL27UOEI}
+  sender: ${COOLSMS_SENDER:01055736982}
+  ttl: ${COOLSMS_TTL:300}

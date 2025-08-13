@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/wisp-server-V1.iml" filepath="$PROJECT_DIR$/.idea/wisp-server-V1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wisp.main.iml" filepath="$PROJECT_DIR$/.idea/modules/wisp.main.iml" />
     </modules>
   </component>
 </project>
