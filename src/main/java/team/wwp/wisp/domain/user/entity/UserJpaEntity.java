@@ -29,8 +29,8 @@ public class UserJpaEntity {
     @Column(name="user_name", nullable=false)
     private String username;
 
-    @Column(name="email", nullable=false, unique=true)
-    private String email;
+    @Column(name="phone_number", nullable=false, unique=true)
+    private String phoneNumber;
 
     @Column(name="password", nullable=false)
     private String password;
@@ -42,12 +42,13 @@ public class UserJpaEntity {
     private String profileImageUrl;
 
     @Column(name="status", nullable=false)
-    @ColumnDefault("OFFLINE")
+    @ColumnDefault("'OFFLINE'")
     @Enumerated(EnumType.STRING)
     private UserStatus status;
 
     @Column(name="role", nullable=false)
     @Enumerated(EnumType.STRING)
+    @ColumnDefault("'ROLE_USER'")
     private UserRole role;
 
     @Column(name="is_active")
@@ -55,14 +56,15 @@ public class UserJpaEntity {
     private Boolean isActive;
 
     @Builder
-    public UserJpaEntity(Long id, String username, String email, String password, String displayName, String profileImageUrl, UserStatus status, UserRole role) {
+    public UserJpaEntity(Long id, String username, String phoneNumber, String password, String displayName, String profileImageUrl, UserStatus status, UserRole role, Boolean isActive) {
         this.id = id;
         this.username = username;
-        this.email = email;
+        this.phoneNumber = phoneNumber;
         this.password = password;
         this.displayName = displayName;
         this.profileImageUrl = profileImageUrl;
         this.status = status;
         this.role = role;
+        this.isActive = isActive;
     }
 }
