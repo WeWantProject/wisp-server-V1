@@ -5,32 +5,39 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${RDB_HOST:localhost}:${RDB_PORT:3306}/${RDB_SCHEMA:wisp_db}
-    username: ${RDB_USERNAME:root}
-    password: ${RDB_PASSWORD:123456}
+    url: jdbc:mysql://${RDB_HOST}:${RDB_PORT}/${RDB_SCHEMA}
+    username: ${RDB_USERNAME}
+    password: ${RDB_PASSWORD}
 
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
 
   data:
     redis:
-      host: ${REDIS_HOST:localhost}
-      port: ${REDIS_PORT:6379}
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
 
   security:
     cors:
-      allowed-origins: ${ALLOWED_ORIGINS:http://localhost:3000,http://localhost:3001}
+      allowed-origins: ${ALLOWED_ORIGINS}
 
 jwt:
   access-token:
-    secret: ${JWT_ACCESS_TOKEN_SECRET:ef20dc1ba114dd1c3ee9d035785a551c8e99da05f642f67f2a0ea8643fe6996c}
-    expiration: ${JWT_ACCESS_TOKEN_EXPIRATION:86400}
+    secret: ${JWT_ACCESS_TOKEN_SECRET}
+    expiration: ${JWT_ACCESS_TOKEN_EXPIRATION}
   refresh-token:
-    secret: ${JWT_REFRESH_TOKEN_SECRET:b093c643373ccf233b834c70a6eab2c1d48140785f0bb267eb8e3fca24fa2de9}
-    expiration: ${JWT_REFRESH_TOKEN_EXPIRATION:604800}
+    secret: ${JWT_REFRESH_TOKEN_SECRET}
+    expiration: ${JWT_REFRESH_TOKEN_EXPIRATION}
 
 coolsms:
-  key: ${COOLSMS_API_KEY:NCSUKVBHPYJWMYZE}
-  secret: ${COOLSMS_API_SECRET:87T9UCIIHRWOVGHN48RGCWCSFL27UOEI}
-  sender: ${COOLSMS_SENDER:01055736982}
-  ttl: ${COOLSMS_TTL:300}
+  key: ${COOLSMS_API_KEY}
+  secret: ${COOLSMS_API_SECRET}
+  sender: ${COOLSMS_SENDER}
+  ttl: ${COOLSMS_TTL}
