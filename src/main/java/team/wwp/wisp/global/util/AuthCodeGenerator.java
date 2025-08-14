@@ -6,9 +6,12 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class AuthCodeGenerator {
+
+    private static final SecureRandom secureRandom = new SecureRandom();
     
     public String generateAuthCode() {
-        return String.valueOf(100000 + new SecureRandom().nextInt(900000));
+        int n = secureRandom.nextInt(1_000_000);
+        return String.format("%06d", n);
     }
 
 }
