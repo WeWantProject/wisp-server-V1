@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: wisp-server-v1
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 15MB
+server:
+  port: 8080

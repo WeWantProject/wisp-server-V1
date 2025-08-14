@@ -1,0 +1,13 @@
+services:
+  mysql:
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=wisp_db'
+      - 'MYSQL_ROOT_PASSWORD=123456'
+    ports:
+      - '3306:3306'
+
+  redis:
+    image: 'redis:latest'
+    ports:
+      - '6379:6379'
